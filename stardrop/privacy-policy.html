@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luma: StarDrop — Privacy policy</title>
+  <style>
+    body { max-width: 52rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.6 system-ui, sans-serif; color: #202020; background: #fff; }
+    h1, h2 { line-height: 1.3; }
+    a { color: #174c87; overflow-wrap: anywhere; }
+    section { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Luma: StarDrop — Privacy policy</h1>
+    <p><strong>Effective date:</strong> the date this page is first published. Checked against Android build 1.7.7 (10707), package <code>com.owlhearth.stardrop</code>, target SDK 36, min SDK 26.</p>
+    <p><strong>Developer:</strong> Owlhearth.<br>
+      Policy URL: <a href="https://owlhearth.github.io/stardrop/privacy-policy.html">https://owlhearth.github.io/stardrop/privacy-policy.html</a>.</p>
+    <nav aria-label="Language"><a href="#en">English</a> · <a href="#ru" lang="ru">Кратко по-русски</a></nav>
+  </header>
+  <main>
+    <section id="en" aria-labelledby="en-title">
+      <h2 id="en-title">The game and local data</h2>
+      <p>Luma: StarDrop is a puzzle game intended for children and adults under Google Play Families. It has 60 campaign levels in six chapters, endless mode and a daily map generated locally from the device's calendar date, not downloaded from a server. There are no accounts or in-app purchases in the game code. Local counters and JSONL gameplay logs stay on the device; optional Firebase forwarding is described below. AdMob's own advertising measurement and diagnostics are described below.</p>
+      <p>Progress, mid-level resume, settings, age band, analytics consent, review-prompt state, endless records and daily-map date/streak/stars are saved locally in <code>user://save_v1.json</code> (temporary write: <code>.tmp</code>; previous-good backup: <code>.bak</code>); ads state uses <code>user://ads_state.json.a</code>/<code>.b</code>, with legacy <code>.json</code>/<code>.tmp</code> support. The app does not upload or cloud-sync these saves. The Gradle Android manifest sets <code>android:allowBackup="false"</code>; export presets have no backup override. This disables Android Auto Backup for that manifest, not every device transfer mechanism or the plain non-Gradle APK template. Clear app storage or uninstall to remove local app data.</p>
+      <p>Android permissions in build 1.7.7: <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, <code>AD_ID</code> / <code>com.google.android.gms.permission.AD_ID</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code> and <code>READ_BASIC_PHONE_STATE</code> (added by the Google Mobile Ads SDK), and <code>VIBRATE</code> for haptics. No camera, microphone, contacts, storage or location permission is requested.</p>
+      <h2>Age screen and children</h2>
+      <p>On first launch, a neutral screen asks for birth year with no default age or preselected year, before ads initialization. Only <code>age_band</code> (child/adult) is saved; birth year is not stored or sent to Google. Unknown age blocks ads. The child threshold is 13 in <code>data/ads_config.json</code>, calculated from current year minus birth year.</p>
+      <p>Children under 13 skip the UMP form. Requests set <code>tag_for_child_directed_treatment=1</code>, <code>tag_for_under_age_of_consent=1</code> and <code>npa=1</code> (non-personalised ads). <code>max_ad_content_rating=G</code> applies to everyone. The code has one age threshold, not separate regional consent ages; regional requirements and current Families SDK certification remain release checks.</p>
+      <h2>Ads and consent</h2>
+      <p>Ads use Google AdMob through poingstudios godot-admob-plugin 5.1.0 (Google Mobile Ads + UMP); the exporter declares <code>ads-mobile-sdk:1.4.0</code>, with no configured mediation. The app contains the Google Mobile Ads SDK and Google User Messaging Platform (UMP) for ads, and Firebase Analytics and Firebase Crashlytics (described below); it contains no other advertising or analytics SDK. Ads are rewarded only: you choose whether to watch for an extra benefit. Watching is optional, but for players allowed to see ads the AdMob SDK starts and exchanges data with Google after consent even if no ad is watched. Interstitials, banners and app-open ads are disabled by config and the minimal tier. Normal play and progression do not require watching ads. Configured rewards are next-attempt double slow motion (<code>retry_slowmo</code>), a three-star solution recording without awarding stars (<code>solution_replay</code>), a first-move cue (<code>hint</code>) and one extra endless Undo (<code>endless_undo</code>). Rewards require the earned-reward callback.</p>
+      <p>After age selection, UMP updates consent on the title screen and shows any required adult form there before Mobile Ads initialization or any ad load. Requests are gated on consent status (not required or obtained), with a separate protected child path; the provider does not call a native <code>canRequestAds()</code> method. Settings shows privacy options when UMP requires them, allowing changes or withdrawal. Cached ads are discarded while consent changes; child protections apply independently.</p>
+      <h2>Google Play In-App Review</h2>
+      <p>The app uses vendored InappReviewPlugin v5.3 with Play Review 2.0.2, enabled in both Gradle presets. When the singleton is available, it calls <code>generate_review_info</code>, then <code>launch_review_flow</code> on the success signal. Eligibility and asked state stay local; the app collects no review data. Google Play handles the review flow.</p>
+      <h2>Data used by AdMob</h2>
+      <p>AdMob disclosures describe data collection and sharing with Google for advertising delivery and measurement, fraud prevention and SDK operation. Depending on age, consent and SDK version, this includes:</p>
+      <ul>
+        <li>Device/app identifiers and advertising ID for non-child users, where available and permitted. Child requests carry the child-directed, under-age and non-personalised flags described above.</li>
+        <li>App interactions, such as ad views and taps.</li>
+        <li>Diagnostics, such as SDK performance and device/OS information.</li>
+        <li>IP address and approximate location inferred from IP, not precise GPS location.</li>
+      </ul>
+      <p>Child-directed ads may still use limited technical data, such as IP, interactions and diagnostics, for contextual advertising, security and operation. Non-personalised does not mean no data collection.</p>
+      <p>The app targets Android SDK 36 and declares no exception for unencrypted traffic, so its network connections use encryption in transit (HTTPS/TLS). Google may process data outside your country. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and <a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">AdMob's data disclosure</a>.</p>
+      <h2>Optional analytics and crash reports</h2>
+      <p>The Android app includes Firebase Analytics and Firebase Crashlytics by Google, used to understand how levels are played and to fix crashes. Collection is off by default and enabled only after a separate, voluntary choice following the age screen, never for players under 13 or with unknown age. Saying no does not affect play. You can change the choice under “Anonymous statistics” in Settings; we remember it even in builds without Firebase. Advertising consent is separate.</p>
+      <p>With consent, Firebase receives an anonymous app-instance ID, gameplay events (including session/build IDs), device model and OS information, and crash traces. We do not send names, birth years or personal details. Firebase advertising ID collection and ad-personalization signals are disabled; this does not change the separate AdMob practices above. Retention follows Firebase defaults for the respective services; see <a href="https://firebase.google.com/support/privacy">Firebase privacy information</a>. Turning the setting off stops further collection, not deletion of data already sent to Google.</p>
+      <p>Collection stays disabled in the app manifest until the in-game consent is given, and crash reports cover Java/Kotlin crashes; game script errors and native (NDK) crashes are not reported.</p>
+      <h2>Retention, deletion and contact</h2>
+      <p>Google controls retention of its advertising data under its <a href="https://policies.google.com/technologies/retention">retention policy</a>. Deleting local saves does not delete Google's records. Android advertising ID controls for non-child users do not erase all previously collected data.</p>
+      <p>There is no in-app account or implemented developer-operated deletion-request service for AdMob data. Deletion is available only to the extent Google/AdMob provides it under applicable rights and controls; Owlhearth cannot promise to erase Google's records on request. See Google's policy and <a href="https://myadcenter.google.com/">My Ad Center</a>. This does not limit legal privacy rights.</p>
+      <p>Privacy questions: sankovanton@gmail.com. If you email us, we receive your address and message only to answer you. We will update this policy when our data practices change.</p>
+    </section>
+    <section id="ru" lang="ru" aria-labelledby="ru-title">
+      <h2 id="ru-title">Кратко по-русски</h2>
+      <p>В Android-приложении есть Firebase Analytics и Firebase Crashlytics от Google: они помогают понять, как проходятся уровни, и исправлять сбои. Сбор по умолчанию выключен, включается только с отдельного добровольного согласия после экрана возраста и никогда — для детей младше 13 лет или при неизвестном возрасте. Отказ не мешает игре. Выбор можно изменить в настройках («Анонимная статистика»); он сохраняется и в сборках без Firebase. Согласие на рекламу — отдельное.</p>
+      <p>С согласия передаются анонимный идентификатор экземпляра приложения, игровые события (включая идентификаторы сессии и сборки), модель устройства, ОС и трассировки сбоев. Имена, год рождения и личные сведения не отправляются. Сбор рекламного идентификатора и сигналы персонализации рекламы в Firebase выключены; это не меняет описанную отдельно работу AdMob. Сроки хранения — по умолчанию Firebase для соответствующих сервисов: <a href="https://firebase.google.com/support/privacy">конфиденциальность Firebase</a>. Выключение прекращает дальнейший сбор, но не удаляет уже отправленные Google данные.</p>
+      <p>Luma: StarDrop от Owlhearth — игра для детей и взрослых: 60 уровней в шести главах, бесконечный режим и ежедневная карта, создаваемая локально по дате устройства. Версия 1.7.7 (10707), пакет <code>com.owlhearth.stardrop</code>, targetSdk 36 / minSdk 26 в Gradle-пресетах AdMob. AAB: armeabi-v7a + arm64-v8a; AdMob APK: arm64-v8a + x86_64. Аккаунтов и покупок в коде нет; локальные счётчики и JSONL-журнал остаются на устройстве. Необязательная отправка Firebase описана ниже. Сохранения локальные, включая состояние уровня, ежедневный прогресс и выбор про анонимную статистику: <code>save_v1.json</code>, <code>.tmp</code>, <code>.bak</code>; рекламное состояние — <code>ads_state.json.a</code>/<code>.b</code>. В Gradle-манифесте <code>android:allowBackup="false"</code>. Контакт для вопросов о конфиденциальности — в английском разделе выше (Privacy questions).</p>
+      <p>Нейтральный экран спрашивает год рождения без выбранного возраста до инициализации рекламы. Сохраняется только <code>age_band</code>, не год рождения. Для детей младше 13 лет нет формы UMP; оба защитных флага равны 1, <code>npa=1</code>. Для всех рейтинг рекламы G. Неизвестный возраст блокирует рекламу.</p>
+      <p>Плагин AdMob 5.1.0, зависимость <code>ads-mobile-sdk:1.4.0</code> и UMP: только добровольная реклама за награду, без баннеров, межстраничных и app-open объявлений. Нужная взрослым форма UMP показывается на титульном экране до загрузки рекламы; параметры конфиденциальности доступны в настройках, когда этого требует UMP. Обычная игра не требует просмотра рекламы. Google Play In-App Review через InappReviewPlugin v5.3 / Play Review 2.0.2 не собирает данные отзыва в приложении.</p>
+      <p>Разрешения Android в сборке 1.7.7: <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, <code>AD_ID</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, <code>READ_BASIC_PHONE_STATE</code> (добавляет Google Mobile Ads SDK) и <code>VIBRATE</code> для вибрации. Камера, микрофон, контакты, файлы и местоположение не запрашиваются.</p>
+      <p>Раскрытия AdMob описывают передачу Google идентификаторов, взаимодействий, диагностики, IP и примерного местоположения по IP. Соединения шифруются (HTTPS/TLS). Удаление локальных данных не удаляет записи Google; сроки хранения и доступные способы удаления определяет Google с учётом применимого закона.</p>
+    </section>
+  </main>
+</body>
+</html>
