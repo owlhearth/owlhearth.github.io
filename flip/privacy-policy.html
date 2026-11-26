@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flip Rush — Privacy policy</title>
+  <style>
+    body { max-width: 52rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.6 system-ui, sans-serif; color: #202020; background: #fff; }
+    h1, h2 { line-height: 1.3; }
+    a { color: #174c87; overflow-wrap: anywhere; }
+    section { margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Flip Rush — Privacy policy</h1>
+    <p><strong>Effective date:</strong> the date this page is first published. Checked against Android build 0.2.28 (30), package <code>com.owlhearth.fliprush</code>, target SDK 36, min SDK 24.</p>
+    <p><strong>Developer:</strong> Owlhearth. <strong>Privacy contact:</strong> <a href="mailto:owlhearthgames@gmail.com">owlhearthgames@gmail.com</a>.<br>
+      Policy URL: <a href="https://owlhearth.github.io/flip/privacy-policy.html">https://owlhearth.github.io/flip/privacy-policy.html</a>.</p>
+    <nav aria-label="Language"><a href="#en">English</a> · <a href="#ru" lang="ru">Кратко по-русски</a></nav>
+  </header>
+  <main>
+    <section id="en" aria-labelledby="en-title">
+      <h2 id="en-title">On-device data and offline play</h2>
+      <p>Flip Rush needs no account and remains playable offline without ads. Progress, caps, ad reward receipts, scores, tutorials, settings and local playtest logs stay on the device; the developer does not receive these files. Clearing app data removes them. System/store backups and browser storage have their own settings and policies.</p>
+      <p>Android permissions in build 0.2.28, as declared in the app package: <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, <code>VIBRATE</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, <code>READ_BASIC_PHONE_STATE</code>, <code>AD_ID</code> (<code>android.permission.AD_ID</code> and <code>com.google.android.gms.permission.AD_ID</code>), <code>ACCESS_ADSERVICES_ATTRIBUTION</code>, <code>ACCESS_ADSERVICES_AD_ID</code> and <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code> (these come from the Google advertising and Firebase SDKs), plus the app's own internal receiver permission <code>com.owlhearth.fliprush.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>. <code>VIBRATE</code> is used for haptics. No camera, microphone, contacts, storage or location permission is requested.</p>
+
+      <h2>Advertising: Google AdMob and consent (UMP)</h2>
+      <p>The Android version integrates Google AdMob and Google User Messaging Platform (UMP). Optional rewarded ads can double collected caps; frequency-capped interstitials appear only between completed levels. Ads never unlock otherwise inaccessible progress. Offline, unavailable ads or a consent error do not block play.</p>
+      <p>Google's SDK may collect and share device or other identifiers (including advertising identifiers), app/ad interactions, diagnostics and IP-derived approximate location for advertising, ad measurement, fraud prevention and security. This differs from the local-only game save. SDK transmission uses HTTPS. Google is a third-party data recipient: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a> and <a href="https://support.google.com/admob/answer/6128543">https://support.google.com/admob/answer/6128543</a>.</p>
+      <p>In the EEA/UK, UMP updates consent and shows a form when required before ad requests. Where UMP requires it, <strong>Privacy options</strong> in Settings lets players revisit their choices. Google may serve limited/non-personalized ads depending on consent and applicable rules. If consent cannot be obtained or updated, the game continues without requesting ads.</p>
+
+      <h2>Analytics and crash reports: Google Firebase</h2>
+      <p>Release Android builds include Google Firebase Analytics and Firebase Crashlytics. Both stay off until the player agrees in the same Google UMP consent flow, which the game shows once after the first won level (the first launch goes straight to level 1). Before an answer, gameplay events wait in a small local queue: they are sent if the player agrees and deleted if the player refuses. Debug builds and builds without Firebase configuration send nothing.</p>
+      <p>With consent, Firebase Analytics receives bounded gameplay events (level start and end with result, attempt number, failure reason, fill percentage and similar game values) together with the app-instance ID, app version, device model, OS version and IP-derived approximate location that Google's SDK adds. Firebase Crashlytics receives crash reports: stack traces, device and app state at the crash and an installation ID. The data is used to balance levels and fix crashes, not for advertising. Players can withdraw consent at any time through <strong>Privacy options</strong> in Settings; collection then stops. Google processes this data as a third party under its own terms and privacy policy.</p>
+
+      <h2>Audience, deletion and support</h2>
+      <p>The audience is 13+. The game is not directed to children and is not a Families release. There are no accounts, so no account deletion is needed. Clearing local app data does not delete information already handled by Google; use Google's privacy controls for data it handles. If you email support, the developer receives your address and message solely to respond; write to <a href="mailto:owlhearthgames@gmail.com">owlhearthgames@gmail.com</a> to have that correspondence deleted.</p>
+
+      <h2>Changes</h2>
+      <p>This policy may be updated when the game's SDKs or data practices change; the current version is always at the policy URL above.</p>
+    </section>
+
+    <section id="ru" lang="ru" aria-labelledby="ru-title">
+      <h2 id="ru-title">Кратко по-русски</h2>
+      <p>Flip Rush от Owlhearth — игра для аудитории 13+, не для детей. Версия 0.2.28 (30), пакет <code>com.owlhearth.fliprush</code>, targetSdk 36, minSdk 24. Аккаунта нет; прогресс, настройки и локальные журналы остаются на устройстве, очистка данных приложения их удаляет. Без интернета игра работает без рекламы.</p>
+      <p>Реклама — Google AdMob с окном согласия UMP: добровольная реклама за награду и межуровневые показы с ограничением частоты, прогресс рекламой не закрыт. SDK Google может собирать идентификаторы устройства (включая рекламный), взаимодействия, диагностику и примерное местоположение по IP. В ЕЭЗ/Великобритании форма UMP показывается при необходимости, «Конфиденциальность» в настройках позволяет изменить выбор; без согласия игра продолжается без запросов рекламы.</p>
+      <p>Firebase Analytics и Crashlytics выключены, пока игрок не согласится в окне UMP, которое показывается один раз после первой победы. С согласием передаются игровые события (уровень, результат, попытка и т. п.), идентификатор экземпляра приложения, версия, модель устройства, ОС, примерное местоположение по IP и отчёты о сбоях; данные нужны для баланса и исправления ошибок, не для рекламы. Согласие можно отозвать в настройках.</p>
+      <p>Разрешения Android в сборке 0.2.28: <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, <code>VIBRATE</code>, <code>WAKE_LOCK</code>, <code>FOREGROUND_SERVICE</code>, <code>READ_BASIC_PHONE_STATE</code>, <code>AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code>, <code>ACCESS_ADSERVICES_AD_ID</code>, <code>BIND_GET_INSTALL_REFERRER_SERVICE</code> (от рекламных SDK Google и Firebase) и внутреннее разрешение приложения для приёмника. Камера, микрофон, контакты, файлы и местоположение не запрашиваются.</p>
+      <p>Очистка данных приложения не удаляет сведения, уже обработанные Google; для них есть средства Google. Вопросы и удаление переписки: <a href="mailto:owlhearthgames@gmail.com">owlhearthgames@gmail.com</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
